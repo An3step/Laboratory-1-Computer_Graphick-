@@ -1,0 +1,53 @@
+Данная документация предназначена для людей, имеющих опыт в программировании,
+желающих ознакомиться с кодом данного проекта.
+1. Описание проекта
+Это приложение позволяет пользователям визуализировать цвет в трех цветовых моделях: RGB, CMYK и HSV.
+Пользователь может изменять компоненты цвета с помощью ползунков, точного ввода чисел и палитры.
+Все изменения в одной модели автоматически пересчитываются и отображаются в остальных моделях.
+
+2. Архитектура приложения
+Класс основного окна: MainWindow
+Класс ввода точных значений: Accurate
+
+3. Классы и методы
+MainWindow:
+MainWindow(QWidget *parent = nullptr);
+~MainWindow();
+void ChangeColor();
+void ColorInitialise();
+void BlockSliders();
+void UnBlockSliders();
+Слоты:
+void on_RedSlider_valueChanged(int value);
+void on_BlueSlider_valueChanged(int value);
+void on_GreenSlider_valueChanged(int value);
+void on_CyanSlider_valueChanged(int value);
+void on_MagentaSlider_valueChanged(int value);
+void on_YellowSlider_valueChanged(int value);
+void on_BlackSlider_valueChanged(int value);
+void on_HueSlider_valueChanged(int value);
+void on_SaturationSlider_valueChanged(int value);
+void on_ValueSlider_valueChanged(int value);
+void on_Palitre_triggered();
+
+Accurate:
+Accurate(QColor* color, QWidget *parent = nullptr);
+~Accurate();
+void ColorInitialise();
+void BlockTypes();
+void UnBlockTypes();
+Слоты:
+void on_RedS_valueChanged(int argument);
+void on_BlueS_valueChanged(int argument);
+void on_GreenS_valueChanged(int argument);
+void on_CyanS_valueChanged(int argument);
+void on_MagentaS_valueChanged(int argument);
+void on_YellowS_valueChanged(int argument);
+void on_BlackS_valueChanged(int argument);
+void on_HueS_valueChanged(int argument);
+void on_SaturationS_valueChanged(int argument);
+void on_ValueS_valueChanged(int argument);
+
+4. Взаимодействие с интерфейсом
+Используйте QSlider, QSpinBox и QColorDialog для взаимодействия с пользователем.
+Обновление цветовой модели должно вызывать событие, которое перерисует цветовой прямоугольник.
